@@ -280,43 +280,43 @@ sensor:
     name: "Office Blind Link Quality"
     entity_category: diagnostic
     unit_of_measurement: "dBm"
-    icon: "mdi:signal"
+    device_class: signal_strength
   - platform: template
     id: lq_zxe
     name: "Guest Blind Link Quality"
     entity_category: diagnostic
     unit_of_measurement: "dBm"
-    icon: "mdi:signal"
+    device_class: signal_strength
   - platform: template
     id: lq_nom
     name: "Living Drape Link Quality"
     entity_category: diagnostic
     unit_of_measurement: "dBm"
-    icon: "mdi:signal"
+    device_class: signal_strength
   - platform: template
     id: lq_ovj
     name: "Guest Drape Link Quality"
     entity_category: diagnostic
     unit_of_measurement: "dBm"
-    icon: "mdi:signal"
+    device_class: signal_strength
   - platform: template
     id: lq_txy
     name: "Living Window Link Quality"
     entity_category: diagnostic
     unit_of_measurement: "dBm"
-    icon: "mdi:signal"
+    device_class: signal_strength
   - platform: template
     id: lq_mlt
     name: "Living Door Link Quality"
     entity_category: diagnostic
     unit_of_measurement: "dBm"
-    icon: "mdi:signal"
+    device_class: signal_strength
   - platform: template
     id: lq_wrk
     name: "Workshop Drape Link Quality"
     entity_category: diagnostic
     unit_of_measurement: "dBm"
-    icon: "mdi:signal"
+    device_class: signal_strength
   - platform: template
     id: power_usz
     name: "Office Blind Voltage"
@@ -409,6 +409,8 @@ The optional sensors above are updated from ARC replies:
 - `limits`: `Unset`, `Upper/Lower Set`, `Upper/Lower/Preferred Set`
 - `power` / `voltage`: `0.00 V` means AC or mains-powered
 - `battery_level`: derived 3S Li-ion estimate from `pVc`
+
+Use `device_class: signal_strength` for ARC RSSI sensors reported in `dBm`. If you later expose signal quality as a percentage sensor, do not reuse `device_class: signal_strength`.
 
 There are no built-in discovery, refresh, or pairing ESPHome services in this repo. Use the bridge methods above instead.
 

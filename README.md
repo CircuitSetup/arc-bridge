@@ -122,15 +122,7 @@ sensor:
     name: "Office Blind Link Quality"
     entity_category: diagnostic
     unit_of_measurement: "dBm"
-    icon: "mdi:signal"
-
-  - platform: template
-    id: voltage_usz
-    name: "Office Blind Voltage"
-    entity_category: diagnostic
-    unit_of_measurement: "V"
-    accuracy_decimals: 2
-    icon: "mdi:battery"
+    device_class: signal_strength
 
   - platform: template
     id: battery_usz
@@ -151,7 +143,7 @@ sensor:
     name: "Living Drape Link Quality"
     entity_category: diagnostic
     unit_of_measurement: "dBm"
-    icon: "mdi:signal"
+    device_class: signal_strength
 
 text_sensor:
   - platform: template
@@ -194,6 +186,8 @@ These are updated from ARC messages:
 - `limits`: `Unset`, `Upper/Lower Set`, `Upper/Lower/Preferred Set`
 - `voltage` / `power`: `0.00 V` indicates an AC or mains-powered motor
 - `battery_level`: derived from `pVc` using a fixed 3S Li-ion curve
+
+Use `device_class: signal_strength` for ARC RSSI sensors reported in `dBm`. If you later create a percentage-based signal sensor, do not reuse `device_class: signal_strength`.
 
 ## Manual Actions
 
